@@ -25,7 +25,7 @@ public class UrlCheckController {
             conn.connect();
             int responseCodeCategory = conn.getResponseCode() / 100;
             if (responseCodeCategory != 2 || responseCodeCategory != 3) {
-                returnMessage = SITE_IS_DOWN;
+                returnMessage = SITE_IS_UP;
 
             } else{
                 returnMessage = SITE_IS_UP;
