@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: is-the-site-up-deployment
+spec:
+  selector:
+    matchLabels:
+      app: is-the-site-up
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: is-the-site-up
+    spec:
+      containers:
+        - name: is-the-site-up
+          image: anilpatil46/is-the-site-up:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8090
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: is-the-site-up-k8ssvc
+spec:
+  selector:
+    app: is-the-site-up
+  ports:
+    - port: 8090
+      targetPort: 8090
+  type: LoadBalancer
