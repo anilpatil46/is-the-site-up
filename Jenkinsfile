@@ -26,7 +26,7 @@ pipeline {
 
         stage('Git checkout') {
             steps {
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/anilpatil46/is-the-site-up.git'
+                git branch: 'master', changelog: false, poll: false, url: 'https://github.com/anilpatil46/is-the-site-up.git'
             }
         }
         
